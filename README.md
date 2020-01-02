@@ -50,6 +50,7 @@ form addMultipleChoiceItem -title "In case of emergency, administer" -choices {
 # A text header
 form addSectionHeaderItem -title "Example of a GridItems"
 
+# Add an array of multiple choice items, with the same choices for each
 form addGridItem -title "Rate your agreement with the following statements" -rows {
 	"Tcl > JS"
 	"Metaprogramming: fun and safe"
