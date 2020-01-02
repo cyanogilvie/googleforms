@@ -108,7 +108,7 @@ oo::class create googleform {
 			append script "\t\t.setTitle([json new string $title])\n"
 		}
 		append script "\t\t.setRows([string map [list \n \n\t\t] [json pretty [my _list2array $rows]]])\n"
-		append script "\t\t.setColumns([my _list2array $columns])\n"
+		append script "\t\t.setColumns([my _list2array $columns]);\n"
 	}
 
 	#>>>

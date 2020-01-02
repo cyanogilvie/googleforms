@@ -1,7 +1,7 @@
 Google Forms
 ============
 
-This package allows Tcl script to programmatically construct a Google Form, by
+This package allows Tcl scripts to programmatically construct a Google Form, by
 generating a Javascript script that executes in Google App Scripts to construct
 the form.
 
@@ -65,7 +65,43 @@ form addGridItem -title "Rate your agreement with the following statements" -row
 
 # Generate the Javascript to generate the form
 puts [form script]
-
-# Paste the resulting output into a new project on scripts.google.com, run it,
-# accept the permission prompt.  The new form will be on your docs.google.com
 ~~~
+
+Produces:
+
+~~~js
+function myFunction() {
+	var form = FormApp.create("My Test Form"), item;
+
+	form.addTextItem().setTitle("First Name");
+	form.addParagraphTextItem().setTitle("Address");
+
+	//----------------------------------------------------------------------------
+	form.addPageBreakItem().setTitle("Preferences");
+	item = form.addCheckboxItem();
+	item.setTitle("Pets");
+	item.setChoices([
+		item.createChoice("Cats"),
+		item.createChoice("Dogs"),
+		item.createChoice("Rhinos")
+	]);
+	form.addMultipleChoiceItem()
+		.setTitle("In case of emergency, administer")
+		.setChoiceValues(["Tea","Coffee","More Coffee"]);
+	form.addSectionHeaderItem().setTitle("Example of a GridItems");
+	form.addGridItem()
+		.setTitle("Rate your agreement with the following statements")
+		.setRows([
+		    "Tcl > JS",
+		    "Metaprogramming: fun and safe",
+		    "Coffee is the most important meal of the day"
+		])
+		.setColumns(["Strongly disagree","Disagree","Neutral","Agree","Strongly Agree"]);
+
+	Logger.log('Published URL: ' + form.getPublishedUrl());
+	Logger.log('Editor URL: ' + form.getEditUrl());
+}
+~~~
+
+Paste the resulting output into a new project on scripts.google.com, run it,
+accept the permission prompt.  The new form will be on your docs.google.com
