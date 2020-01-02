@@ -88,7 +88,7 @@ function myFunction() {
 	form.addMultipleChoiceItem()
 		.setTitle("In case of emergency, administer")
 		.setChoiceValues(["Tea","Coffee","More Coffee"]);
-	form.addSectionHeaderItem().setTitle("Example of a GridItems");
+	form.addSectionHeaderItem().setTitle("Example of a GridItem");
 	form.addGridItem()
 		.setTitle("Rate your agreement with the following statements")
 		.setRows([
