@@ -22,13 +22,13 @@ Example
 ~~~tcl
 package require googleforms
 
-googleforms create form -title "My Test Form"
+googleform create form -name "My Test Form"
 
 # Add a simple text input
 form addTextItem -title "First Name"
 
 # Add a paragraph text input
-form addParagraphItem -title "Address"
+form addParagraphTextItem -title "Address"
 
 # New section
 form addPageBreakItem -title "Preferences"
